@@ -1,4 +1,4 @@
-// Copyright by C-developers1488
+// Copyright by Spertis
 
 #include <gtest/gtest.h>
 #include "header.hpp"
