@@ -1,4 +1,4 @@
-// Copyright by C-developers1488
+// Copyright by Spertis
 
 #include "header.hpp"
 #include <iostream>
@@ -6,11 +6,12 @@
 
 Filesystem::Filesystem(const std::string path_to_file){
   _path_to_ftp = boost::filesystem::path(path_to_file);
-  std::cout << _path_to_ftp << std::endl;
-  if (is_symlink(_path_to_ftp))
-    _path_to_ftp = read_symlink(_path_to_ftp);
+//  std::cout << _path_to_ftp << std::endl;
   if (!is_directory(_path_to_ftp))
     throw std::runtime_error("This path is not directory");
+   else if (is_symlink(_path_to_ftp)) {
+    _path_to_ftp = read_symlink(_path_to_ftp);
+  }
 }
 
 void Filesystem::all_path(boost::filesystem::path p, std::ostream &out) {
